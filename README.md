@@ -2,6 +2,10 @@
 
 Unix systems are characterized by their support for multiple users. The xv6 system does not support multiple users. This projects implements multiple users within the xv6 system.
 
+<p align="center">
+  <img width="675" height="450" src="https://i.ibb.co/wNQydXR/Annotation-2020-06-10-164440.png">
+</p>
+
 Unix systems have user and user group concepts, and each file has a set of permissions (i.e., a mode) that describes which rights have which users and which user group members have over the file.
 
 The code that deals with user management is divided into a part in the kernel and a part in the user space. In the kernel, users and groups are strictly numerical concepts. Each process has a UID (user id) and an EUID (effective user id) and a list of GID numbers, and each inode has a UID, GID, and mode parameter. The kernel does not track which users and which groups exist. In other words, all UID and GID numbers are valid. There is a library in the user space with routines for translating UIDs (ie GIDs) into text names of users (ie groups), and the user database is a text file /etc/passwd (and /etc/group for groups).
